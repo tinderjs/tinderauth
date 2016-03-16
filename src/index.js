@@ -13,7 +13,7 @@ export default async function getTokenAndId(email, password){
       throw new Error("Define username and password via env vars")
   }
 
-  let scraped_token, profile_id;
+  let token, profile_id;
 
   let browser = new Browser()
 
@@ -22,7 +22,7 @@ export default async function getTokenAndId(email, password){
       var t = browser.url.match(/#access_token=(.+)&/)
 
       if (t && t[1]){
-          scraped_token = t[1];
+          token = t[1];
       }
   })
 
@@ -40,6 +40,6 @@ export default async function getTokenAndId(email, password){
 
   profile_id = profile_id_element.match(/profile.php\?id=(.+)/)[1]
 
-  return { scraped_token, profile_id }
+  return { token, profile_id }
 }
 
