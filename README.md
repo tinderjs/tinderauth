@@ -37,11 +37,14 @@ tinderauth.default().then(function(response){
 By the way, you may have concerns about using your FACEBOOK_EMAIL and FACEBOOK_PASSWORD. A couple points about this: 
 
 First, if you would like an alternative, check out http://www.github.com/tinderjs/tindercred , you will have to manually copy your password and ID so it's not programmatic, but it's a nice option. 
+
 Secondly, these variables are never shared with an outside service, and aren't in your source since they are exported with an environment variable. 
+
 Lastly, and most importantly, you should *not* use these experimental technologies with your real Facebook account. Make a throwaway Facebook account so that if things glitch you don't lose privelleges with your real Facebook account. Therefore, you shouldn't ever need to worry about losing access to your real Facebok account, don't even use it with this module. 
 
 
 To-Do:
-[_] - Get ES5 working ( dealing with a babel issue right now )
-[_] - Speed up ZombieJS scraping
-[_] - Add copyright and change to MIT license
+
+- [ ] Get ES5 working ( dealing with a babel issue right now )
+- [ ] Speed up ZombieJS scraping
+- [ ] Add copyright and change to MIT license
