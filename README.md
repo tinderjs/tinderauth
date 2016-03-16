@@ -22,7 +22,7 @@ import tinderauth from 'tinderauth';
 })();
 ```
 
-ES5: (doesn't work atm, give me a minute to fix this)
+ES5:
 
 ```
 var tinderauth = require('tinderauth');
@@ -45,6 +45,6 @@ Lastly, and most importantly, you should *not* use these experimental technologi
 
 To-Do:
 
-- [ ] Get ES5 working ( dealing with a babel issue right now )
+- [X] Get ES5 working
 - [ ] Speed up ZombieJS scraping
 - [ ] Add copyright and change to MIT license
