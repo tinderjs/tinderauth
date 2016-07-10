@@ -48,10 +48,11 @@ Lastly, and most importantly, you should *not* use these experimental technologi
 To-Do:
 
 - [X] Get ES5 working
-- [ ] Speed up ZombieJS scraping
 - [ ] Add copyright and change to MIT license
 
-## Developing & testing
-- clone the repo repo
-- `npm i`
-- `FACEBOOK_EMAIL='your@email.com' FACEBOOK_PASSWORD='your-password' FACEBOOK_EXPECTED_USER_ID='get this manually from graph api' npm test`
+## Developing And Testing
+- Get your user ID from: http://findmyfbid.com/
+- Clone repo locally
+- `$ npm install`
+- `$ export FACEBOOK_EMAIL='your@email.com' && export FACEBOOK_PASSWORD='yourPassword'&& FACEBOOK_EXPECTED_USER_ID='yourUserId' && npm test`
+
