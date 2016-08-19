@@ -27,12 +27,16 @@ export default async function getTokenAndId (email, password) {
   await browser.pressButton("button[name='__CONFIRM__']")
 
   var nockCallObjects = nock.recorder.play()
-  let tokenResponse = _.where(nockCallObjects, {path: '/v2.1/dialog/oauth/confirm?dpr=1'})
-  debug(tokenResponse[0].response)
+  let tokenResponse = _.filter(nockCallObjects, (nockCallObject) =>
+    nockCallObject.path === '/v2.1/dialog/oauth/confirm?dpr=1' ||
+    nockCallObject.path === '/v2.1/dialog/oauth/read?dpr=1'
+  )
 
   if (tokenResponse.length !== 1) {
     throw new Error(`Tinderauth tokenresponse not found! length: ${tokenResponse.length}`)
   }
+  debug(tokenResponse[0].response)
+
   let [, token] = tokenResponse[0].response.match(/#access_token=(.+)&/)
   let {data: {id: profile_id}} = await axios.get(`https://graph.facebook.com/me?access_token=${token}`)
 
