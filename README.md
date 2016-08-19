@@ -19,7 +19,8 @@ ES6:
 import tinderauth from 'tinderauth';
 
 (async function(){
-  const { token, profile_id } = await tinderauth();
+  // alternatively you can pass credentials as arguments
+  const { token, profile_id } = await tinderauth('hello@domain.com', 'sosecret');
   console.log(token, profile_id);
 })();
 ```
@@ -29,7 +30,7 @@ ES5:
 ```
 var tinderauth = require('tinderauth');
 
-tinderauth.default().then(function(response){
+tinderauth().then(function(response){
   var token = response.token;
   var profile_id = response.profile_id;
   console.log(token, profile_id);
@@ -54,4 +55,4 @@ To-Do:
 ## Developing & testing
 - clone the repo repo
 - `npm i`
-- `FACEBOOK_EMAIL='your@email.com' FACEBOOK_PASSWORD='your-password' FACEBOOK_EXPECTED_USER_ID='get this manually from graph api' npm test`
+- `FACEBOOK_EMAIL='your@email.com' FACEBOOK_PASSWORD='your-password' FACEBOOK_EXPECTED_USER_ID='your_expected_user_id' DEBUG=tinderauth npm test`
