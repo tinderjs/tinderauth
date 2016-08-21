@@ -20,17 +20,28 @@ export default async function getTokenAndId (email, password) {
 
   await browser.visit(FACEBOOK_AUTHENTICATION_TOKEN_URL)
   browser.fill('#email', email).fill('#pass', password)
-  await browser.pressButton('#loginbutton')
+  try {
+    await browser.pressButton('#loginbutton')
+  } catch (e) {
+    await browser.pressButton("input[name='login']")
+  }
 
   debug('passed login')
   nock.recorder.rec({output_objects: true, dont_print: true})
-  await browser.pressButton("button[name='__CONFIRM__']")
+  try {
+    await browser.pressButton("button[name='__CONFIRM__']")
+  } catch (e) {
+    nock.recorder.restore()
+    nock.recorder.clear()
+    throw e
+  }
 
   var nockCallObjects = nock.recorder.play()
-  let tokenResponse = _.filter(nockCallObjects, (nockCallObject) =>
-    nockCallObject.path === '/v2.1/dialog/oauth/confirm?dpr=1' ||
-    nockCallObject.path === '/v2.1/dialog/oauth/read?dpr=1'
-  )
+  let urlRegex = /\/v2\.1\/dialog\/oauth\/(confirm|read)\?dpr=[0-9]{1}/
+  let tokenResponse = _.filter(nockCallObjects, (nockCallObject) => urlRegex.test(nockCallObject.path))
+
+  nock.recorder.restore()
+  nock.recorder.clear()
 
   if (tokenResponse.length !== 1) {
     throw new Error(`Tinderauth tokenresponse not found! length: ${tokenResponse.length}`)
