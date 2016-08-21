@@ -23,6 +23,7 @@ export default async function getTokenAndId (email, password) {
   try {
     await browser.pressButton('#loginbutton')
   } catch (e) {
+    debug('#loginbutton not found trying input[name=login]')
     await browser.pressButton("input[name='login']")
   }
 
@@ -31,9 +32,21 @@ export default async function getTokenAndId (email, password) {
   try {
     await browser.pressButton("button[name='__CONFIRM__']")
   } catch (e) {
-    nock.recorder.restore()
-    nock.recorder.clear()
-    throw e
+    // TODO better non critical error handling
+    if (e.message === "Cannot read property 'birthdate' of null") {
+      debug(`got error ${e.message} but ignoring`)
+      try {
+        await browser.wait()
+      } catch (e) {
+        nock.recorder.restore()
+        nock.recorder.clear()
+        throw e
+      }
+    } else {
+      nock.recorder.restore()
+      nock.recorder.clear()
+      throw e
+    }
   }
 
   var nockCallObjects = nock.recorder.play()
