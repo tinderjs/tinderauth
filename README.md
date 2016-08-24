@@ -1,6 +1,14 @@
 # tinderauth
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+## CLI usage
+```
+npm i tinderauth -g
+tinderauth
+```
+![alt text](https://raw.githubusercontent.com/tinderjs/tinderauth/master/docs/cli.gif "Logo Title Text 1")
+
+## Api usage
 Get your credentials for the Tinder API programatically
 
 This module uses your FACEBOOK_USERNAME and FACEBOOK_PASSWORD to programatically get a token and your profile id, both of which are needed to authenticate with the http://www.github.com/tinderjs/tinder API.
@@ -19,7 +27,8 @@ ES6:
 import tinderauth from 'tinderauth';
 
 (async function(){
-  const { token, profile_id } = await tinderauth();
+  // alternatively you can pass credentials as arguments
+  const { token, profile_id } = await tinderauth('hello@domain.com', 'sosecret');
   console.log(token, profile_id);
 })();
 ```
@@ -29,7 +38,7 @@ ES5:
 ```
 var tinderauth = require('tinderauth');
 
-tinderauth.default().then(function(response){
+tinderauth().then(function(response){
   var token = response.token;
   var profile_id = response.profile_id;
   console.log(token, profile_id);
@@ -50,9 +59,8 @@ To-Do:
 - [X] Get ES5 working
 - [ ] Add copyright and change to MIT license
 
-## Developing And Testing
+## Developing & testing
 - Get your user ID from: http://findmyfbid.com/
-- Clone repo locally
-- `$ npm install`
-- `$ export FACEBOOK_EMAIL='your@email.com' && export FACEBOOK_PASSWORD='yourPassword'&& FACEBOOK_EXPECTED_USER_ID='yourUserId' && npm test`
-
+- Clone the repo repo
+- `$ npm i`
+- `$ FACEBOOK_EMAIL='your@email.com' FACEBOOK_PASSWORD='your-password' FACEBOOK_EXPECTED_USER_ID='your_expected_user_id' DEBUG=tinderauth npm test`
