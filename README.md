@@ -1,6 +1,14 @@
 # tinderauth
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+## CLI usage
+```
+npm i tinderauth -g
+tinderauth
+```
+![alt text](https://raw.githubusercontent.com/tinderjs/tinderauth/master/cli.gif "Logo Title Text 1")
+
+## Api usage
 Get your credentials for the Tinder API programatically
 
 This module uses your FACEBOOK_USERNAME and FACEBOOK_PASSWORD to programatically get a token and your profile id, both of which are needed to authenticate with the http://www.github.com/tinderjs/tinder API.

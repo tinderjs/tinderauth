@@ -4,7 +4,7 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist && babel bin-src --out-dir bin && mv bin/tinderauth.js bin/tinderauth",
     "test": "standard && mocha --compilers js:babel-register --bail",
     "prepublish": "npm run build"
   },
@@ -22,7 +22,9 @@
     "babel-plugin-transform-runtime": "^6.6.0",
     "babel-runtime": "^6.6.1",
     "debug": "^2.2.0",
+    "inquirer": "^1.1.2",
     "nock": "git+https://github.com/barczaG/nock",
+    "tinder": "^1.19.0",
     "underscore": "^1.8.3",
     "zombie": "^4.2.1"
   },
