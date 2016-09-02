@@ -40,5 +40,8 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": "dist/"
+  },
+  "bin": {
+    "tinderauth": "./bin/tinderauth"
   }
 }
