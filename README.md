@@ -1,4 +1,10 @@
 # tinderauth
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/tinderauth"><img src="https://img.shields.io/npm/dm/tinderauth.svg" alt="npm downloads"></a>
+  <a href="https://www.npmjs.com/package/tinderauth"><img src="https://img.shields.io/npm/v/tinderauth.svg" alt="npm version"></a>
+  <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="js-standard-style"></a>
+</p>
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## CLI usage
