@@ -1,6 +1,6 @@
 {
   "name": "tinderauth",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Get your credentials for the Tinder API programatically",
   "main": "./dist/index.js",
   "scripts": {
