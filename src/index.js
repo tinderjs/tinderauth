@@ -50,7 +50,7 @@ export default async function getTokenAndId (email, password) {
   }
 
   var nockCallObjects = nock.recorder.play()
-  let urlRegex = /\/v2\.1\/dialog\/oauth\/(confirm|read)\?dpr=[0-9]{1}/
+  let urlRegex = /\/v[0-9]\.[0-9]\/dialog\/oauth\/(confirm|read)\?dpr=[0-9]{1}/
   let tokenResponse = _.filter(nockCallObjects, (nockCallObject) => urlRegex.test(nockCallObject.path))
 
   nock.recorder.restore()
