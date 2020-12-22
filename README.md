@@ -66,7 +66,7 @@ To-Do:
 - [ ] Add copyright and change to MIT license
 
 ## Developing & testing
-- Get your user ID from: http://findmyfbid.com/
+- Get your user ID from: https://findmyfbid.in/
 - Clone the repo repo
 - `$ npm i`
 - `$ FACEBOOK_EMAIL='your@email.com' FACEBOOK_PASSWORD='your-password' FACEBOOK_EXPECTED_USER_ID='your_expected_user_id' DEBUG=tinderauth npm test`
